@@ -80,25 +80,3 @@ class Expression:
         if self.pos < len(self.tokens):
             raise ValueError(f"Unexpected token at end: {self.tokens[self.pos]}")
         return result
-
-
-def test():
-    expr = Expression("2+3*4")
-    assert expr.tokens == ['2', '+', '3', '*', '4']
-    assert expr.evaluate() == 14
-
-    expr = Expression("2^5*7+6")
-    assert expr.tokens == ['2', '^', '5', '*', '7', '+', '6']
-    assert expr.evaluate() == 230
-
-    expr = Expression("2^4+3^2")
-    assert expr.tokens == ['2', '^', '4', '+', '3', '^', '2']
-    assert expr.evaluate() == 25
-
-    print("All tests passed.")
-
-if __name__ == "__main__":
-    expr = Expression("2^2^2^2+5*3")
-    print(expr.tokens)  # Output: ['2', '^', '5', '*', '7', '+', '
-    print(expr.evaluate())  # Output: 230
-    # test()
